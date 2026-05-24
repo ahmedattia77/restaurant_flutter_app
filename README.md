@@ -1,6 +1,6 @@
 # Groceries Flutter App
 
-A modern, high-performance Restaurant & Food Delivery mobile application built using **Flutter** and **Dart**. The project focuses on a highly-scalable architecture, efficient state management, and an adaptive user experience.
+A modern, high-performance Groceries App mobile application built using **Flutter** and **Dart**. The project focuses on a highly-scalable architecture, efficient state management, and an adaptive user experience.
 
 ---
 
