@@ -59,4 +59,4 @@ lib/
 
 *   **UI Framework:** Flutter (Material 3 enabled)
 *   **State Management:** Reactive programming utilizing lightweight built-in `ValueNotifier` & `ValueListenableBuilder`.
-*   **Asset Support:** `flutter_svg` for crisp, resolution-independent vector iconography.
+*   **Asset Support:**
