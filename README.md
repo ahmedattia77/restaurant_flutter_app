@@ -10,11 +10,11 @@ A modern, high-performance Restaurant & Food Delivery mobile application built u
 *   **Zero-Lag Theme Toggle**: Seamlessly switch between Light and Dark themes across the entire app via a global reactive notifier.
 *   **Smart Icons & Typography**: Custom SVG assets and texts dynamically adapt their color filters (`Theme.of(context)`) instantly without full-page rebuilts, maintaining a buttery-smooth 60/120 FPS scrolling experience.
 
-### Secure Authentication & State Routing using value notifiers.
+### 🌓 Secure Authentication & State Routing using value notifiers.
 *   **Centralized WidgetTree**: A smart gateway that manages the application lifecycle. It safely renders either the auth screens (`LoginPage`/`SignUpPage`) or the `MainLayout` based on the real-time login state.
 *   **State-Preserved Navigation**: Utilizing `IndexedStack` inside the main layout wrapper to cache screen states and retain user scroll positions while seamlessly navigating between different tabs.
 
-### Atomic UI Components nvigation using value notifiers.
+### 🌓 Atomic UI Components nvigation using value notifiers.
 *   **Micro-Widgets Separation**: High code reusability by splitting screens into clean micro-components (e.g., `ProfilePicture`, `AuthTextField`, `AccountSettingsItem`).
 
 ---
