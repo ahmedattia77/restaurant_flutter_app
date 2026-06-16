@@ -47,7 +47,7 @@ The project strictly separates the **Data Layer** from the **Presentation Layer 
 lib/
 │
 ├── constants/                    # Global app styling configuration, theme setup & assets
-├── data/                         # 📦 Data Layer (Models & Repositories)
+├── data/                         #  Data Layer (Models & Repositories)
 │   ├── account_page/             # Profile lists data arrays and setting models
 │   │   └── account_settings.dart 
 │   ├── auth/                     # Authentication data mechanisms
@@ -64,13 +64,13 @@ lib/
 │   │       └── groceries_repository.dart
 │   └── items.dart                
 │
-└── views/                        # 🎨 Presentation Layer (User Interface & Micro-Widgets)
+└── views/                        #  Presentation Layer (User Interface & Micro-Widgets)
     ├── account/                  # Account & Profile management feature
     │   ├── pages/                
     │   │   └── account_page.dart
     │   └── widgets/              
     │       └── account_settings_item.dart
-    ├── auth/                     # Authentication Screens
+    ├── auth/                     #     Authentication Screens
     │   ├── pages/                # LoginPage, SignUpPage
     │   └── widgets/              
     ├── home/                     # Home Storefront Screen
