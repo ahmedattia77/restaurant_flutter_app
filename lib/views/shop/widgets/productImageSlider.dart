@@ -11,11 +11,9 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  // كونتولر للتحكم في حركة ممرر الصور والتقاط الصفحة الحالية
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  // قائمة محاكاة لصور المنتج (يمكنك لاحقاً وضعها في الموديل كـ List<String>)
   final List<String> _productImages = [
     'assets/images/apple.png',
     'assets/images/apple_side.png',
@@ -31,13 +29,12 @@ class _ProductPageState extends State<ProductPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // 1. الحاوية العلوية الكبيرة (تصميم الصورة والأزرار)
             Container(
-              height: MediaQuery.of(context).size.height * 0.45, // تأخذ 45% من ارتفاع الشاشة
+              height: MediaQuery.of(context).size.height * 0.45,
               decoration: BoxDecoration(
                 color: isDarkMode ? const Color(0xFF1A1A2E) : Colors.white,
                 borderRadius: const BorderRadius.vertical(
-                  bottom: Radius.circular(30), // حواف دائرية من الأسفل فقط
+                  bottom: Radius.circular(30), 
                 ),
               ),
               child: SafeArea(
@@ -61,7 +58,7 @@ class _ProductPageState extends State<ProductPage> {
                               return Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 20),
                                 child: Image.asset(
-                                  widget.data.image, // حالياً يسحب الصورة الأساسية
+                                  widget.data.image, 
                                   fit: BoxFit.contain,
                                 ),
                               );
@@ -69,7 +66,6 @@ class _ProductPageState extends State<ProductPage> {
                           ),
                         ),
                         
-                        // 2. مؤشر النقاط التوضيحية (Dots Indicator)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 20, top: 10),
                           child: Row(
@@ -94,7 +90,6 @@ class _ProductPageState extends State<ProductPage> {
                       ],
                     ),
 
-                    // 3. أزرار التحكم العلوية (الرجوع ومشاركة المنتج)
                     Positioned(
                       top: 10,
                       left: 20,
@@ -118,7 +113,6 @@ class _ProductPageState extends State<ProductPage> {
               ),
             ),
 
-            // 4. الجزء السفلي المخصص لبيانات المنتج (الاسم، السعر، الوصف)
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Column(
@@ -133,7 +127,6 @@ class _ProductPageState extends State<ProductPage> {
                     widget.data.amount,
                     style: const TextStyle(fontSize: 16, color: Colors.grey),
                   ),
-                  // هنا تكمل باقي أجزاء الصفحة (الوصف، زر إضافة للسلة، إلخ...)
                 ],
               ),
             ),

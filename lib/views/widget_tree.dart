@@ -3,8 +3,9 @@ import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/views/auth/pages/login_page.dart';
 import 'package:restaurant_flutter_app/main_layout.dart';
 import 'package:restaurant_flutter_app/views/auth/pages/sign_up_page.dart';
+import 'package:restaurant_flutter_app/views/onboarding/pages/onboarding.dart';
 
-List<Widget> _authPages = [LoginPage(), SignUpPage()];
+List<Widget> _authPages = [Onboarding(),LoginPage(), SignUpPage()];
 
 class WidgetTree extends StatelessWidget {
   const WidgetTree({super.key});
