@@ -10,8 +10,10 @@ import 'package:restaurant_flutter_app/views/shop/pages/product_page.dart';
 import 'package:restaurant_flutter_app/views/shop/widgets/Groceries_container.dart';
 import 'package:restaurant_flutter_app/views/shop/widgets/exclusive_offers_container.dart';
 import 'package:restaurant_flutter_app/views/shop/widgets/location_title.dart';
+import 'package:restaurant_flutter_app/views/shop/widgets/product_item_background.dart';
 import 'package:restaurant_flutter_app/views/shop/widgets/search_text_field.dart';
 import 'package:restaurant_flutter_app/views/shop/widgets/section_see_all.dart';
+import 'package:restaurant_flutter_app/views/shop/widgets/shopping_image_slider.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -21,6 +23,7 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
+
   final _exclusivRipo = ExclusiveOfferRepository();
   final _bestSellingRipo = BestSellingRepository();
   final _groceriesRipo = GroceriesRepository();
@@ -55,7 +58,16 @@ class _ShopPageState extends State<ShopPage> {
             SearchTextField(),
             SizedBox(height: 30),
             SectionTextField(title: 'Exclusive Offer',),
+            
             SizedBox(height: 20),
+            // SizedBox(
+            //         height: 130,
+            //         width: double.infinity,
+            //         child: ProductItemBacground(
+            //           child: ShoppingImageSlider(),
+            //         ),
+            //       ),
+            // SizedBox(height: 20),
       
             SizedBox(
               height: 230,

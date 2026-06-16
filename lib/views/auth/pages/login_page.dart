@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
+import 'package:restaurant_flutter_app/main_layout.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_background.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_button.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_text_field.dart';
@@ -9,6 +10,7 @@ import 'package:restaurant_flutter_app/views/auth/widgets/auth_hint.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,9 @@ class LoginPage extends StatelessWidget {
               AuthButton(
                 text: 'Login',
                 onPressed: () {
-                  isLogedNotifier.value = true;
+                  // isLogedNotifier.value = true;
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => 
+                     MainLayout(),),(route) => false);
                 },
               ),
               SizedBox(height: 25),
@@ -82,10 +86,10 @@ class LoginPage extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         color: Colors.green,
                         onClicked: () {
-                          selectedAuthPageNotifier.value = 1;
+                          selectedAuthPageNotifier.value = 2;
                         },
                       );
-                    },
+                    }
                   ),
                 ],
               ),

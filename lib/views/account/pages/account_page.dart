@@ -6,6 +6,8 @@ import 'package:restaurant_flutter_app/views/account/widgets/profile_head_email.
 import 'package:restaurant_flutter_app/views/account/widgets/profile_head_name.dart';
 import 'package:restaurant_flutter_app/views/account/widgets/profile_name_editor_icon.dart';
 import 'package:restaurant_flutter_app/views/account/widgets/profile_picture.dart';
+import 'package:restaurant_flutter_app/views/auth/pages/login_page.dart';
+import 'package:restaurant_flutter_app/views/onboarding/pages/onboarding.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -75,9 +77,18 @@ class AccountPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20, bottom: 20),
             child: ElevatedButton(
               onPressed: () {
-                isLogedNotifier.value = false;
-                homeNavigationNotifier.value = 0;
-                selectedAuthPageNotifier.value = 0;
+                // homeNavigationNotifier.value = 0;
+                // isLogedNotifier.value = false;
+                // selectedAuthPageNotifier.value = 0;
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        const Onboarding(), 
+                  ),
+                  (route) =>
+                      false, 
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xffF2F3F2),

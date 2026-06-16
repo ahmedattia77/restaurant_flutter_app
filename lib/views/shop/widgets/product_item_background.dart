@@ -10,7 +10,8 @@ class ProductItemBacground extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: const BorderRadius.vertical(
-        bottom: Radius.circular(30)
+        bottom: Radius.circular(30),
+        top: Radius.circular(30)
       ),
       child: Stack(
         

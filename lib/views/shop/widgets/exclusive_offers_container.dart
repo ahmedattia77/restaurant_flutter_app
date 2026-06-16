@@ -69,7 +69,7 @@ class ExclusiveOffersContainer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '\$${data.amount}',
+                      '\$${data.price}',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
