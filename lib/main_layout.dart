@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/views/account/pages/account_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:restaurant_flutter_app/views/shop/pages/shop_page.dart';
 
 class MainLayout extends StatelessWidget {
   MainLayout({super.key});
 
   final List<Widget> _appPages = [
-    const Center(child: Text('shop page')),
+    const ShopPage(),
     const Center(child: Text("Explore")),
     const Center(child: Text("Cart")),
     const Center(child: Text("Favorite")),
