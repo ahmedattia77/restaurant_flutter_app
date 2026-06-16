@@ -30,7 +30,7 @@ A modern, high-performance Groceries mobile application built using **Flutter** 
 
 ---
 
-## 📺 App Demo (Video Showcase) WARRING the video is pexeled becuas the resoulation must upload less than 10MB
+## 📺 App Demo (Video Showcase) WARNING the video HAS BEEN pexeled becuas the resoulation must upload less than 10MB
 
 https://github.com/user-attachments/assets/2e8847fd-532d-4902-bb40-a9eddfc3ca55
 
