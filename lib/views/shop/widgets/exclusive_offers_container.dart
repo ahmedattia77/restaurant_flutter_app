@@ -26,7 +26,7 @@ class ExclusiveOffersContainer extends StatelessWidget {
             offset: const Offset(0, 10),
           ),
         ],
-        color: isDarkMode ? Colors.black38 : Colors.white60,
+        color: isDarkMode ? Colors.white12 : Colors.white60,
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Column(

@@ -22,7 +22,6 @@ class _CounterViewState extends State<CounterView> {
   @override
   Widget build(BuildContext context) {
     final bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    double currentPrice = widget.price;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,7 +51,7 @@ class _CounterViewState extends State<CounterView> {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                color: isDarkMode ? Colors.black26 : Colors.white,
+                color: isDarkMode ? Colors.white12 : Colors.white,
                 borderRadius: BorderRadius.circular(18),
                 border: Border.all(width: 0.2),
               ),
