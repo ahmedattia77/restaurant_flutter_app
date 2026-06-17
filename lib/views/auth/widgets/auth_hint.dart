@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
@@ -19,8 +18,11 @@ class AuthHint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onClicked,
+    return TextButton(
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero
+      ),
+      onPressed: () => onClicked,
       child: Text(
         title,
         style: TextStyle(

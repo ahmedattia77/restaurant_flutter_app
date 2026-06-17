@@ -4,8 +4,11 @@ import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/views/widget_tree.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main()  {
-
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  isLogedNotifier.value = prefs.getBool(isLoggedInKey) ?? false;
+  isDark.value = prefs.getBool(isDarkMode) ?? false;
   runApp(const MyApp());
 }
 

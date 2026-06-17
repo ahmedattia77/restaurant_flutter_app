@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_flutter_app/constants/constants.dart';
 import 'package:restaurant_flutter_app/data/account_page/account_settings.dart';
 import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/views/account/widgets/account_settings_item.dart';
@@ -6,8 +7,8 @@ import 'package:restaurant_flutter_app/views/account/widgets/profile_head_email.
 import 'package:restaurant_flutter_app/views/account/widgets/profile_head_name.dart';
 import 'package:restaurant_flutter_app/views/account/widgets/profile_name_editor_icon.dart';
 import 'package:restaurant_flutter_app/views/account/widgets/profile_picture.dart';
-import 'package:restaurant_flutter_app/views/auth/pages/login_page.dart';
 import 'package:restaurant_flutter_app/views/onboarding/pages/onboarding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AccountPage extends StatelessWidget {
   const AccountPage({super.key});
@@ -45,7 +46,10 @@ class AccountPage extends StatelessWidget {
                                     ? Icons.dark_mode_outlined
                                     : Icons.light_mode_outlined,
                               ),
-                              onPressed: () {
+                              onPressed: () async {
+                                final SharedPreferences prefs =
+                                    await SharedPreferences.getInstance();
+                                prefs.setBool(isDarkMode, true);
                                 isDark.value = !value;
                               },
                             );
@@ -76,18 +80,19 @@ class AccountPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 20, bottom: 20),
             child: ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 // homeNavigationNotifier.value = 0;
                 // isLogedNotifier.value = false;
                 // selectedAuthPageNotifier.value = 0;
+                final SharedPreferences prefs =
+                    await SharedPreferences.getInstance();
+                  await prefs.remove(isLoggedInKey);
+                  await prefs.remove(isDarkMode);
+
                 Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        const Onboarding(), 
-                  ),
-                  (route) =>
-                      false, 
+                  MaterialPageRoute(builder: (context) => const Onboarding()),
+                  (route) => false,
                 );
               },
               style: ElevatedButton.styleFrom(

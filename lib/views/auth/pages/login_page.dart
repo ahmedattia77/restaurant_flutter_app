@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_flutter_app/constants/constants.dart';
 import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/main_layout.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_background.dart';
@@ -7,6 +8,7 @@ import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_text_field
 import 'package:restaurant_flutter_app/views/common_widgets/head_icon.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_title.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_hint.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -64,8 +66,10 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: 30),
               AuthButton(
                 text: 'Login',
-                onPressed: () {
-                  // isLogedNotifier.value = true;
+                onPressed: () async{
+                  // isLogedNotifier.value = true;                  
+                  final SharedPreferences prefs = await SharedPreferences.getInstance();
+                  await prefs.setBool(isLoggedInKey, true);
                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => 
                      MainLayout(),),(route) => false);
                 },
@@ -78,18 +82,14 @@ class LoginPage extends StatelessWidget {
                     title: 'Don’t have an account? ',
                     fontWeight: FontWeight.w600,
                   ),
-                  ValueListenableBuilder(
-                    valueListenable: selectedAuthPageNotifier,
-                    builder: (context, value, child) {
-                      return AuthHint(
-                        title: 'Sing up',
-                        fontWeight: FontWeight.w600,
-                        color: Colors.green,
-                        onClicked: () {
-                          selectedAuthPageNotifier.value = 2;
-                        },
-                      );
-                    }
+                  AuthHint(
+                    title: 'Sing up',
+                    fontWeight: FontWeight.w600,
+                    color: Colors.green,
+                    onClicked: () {
+                      selectedAuthPageNotifier.value = 2;
+                      
+                    },
                   ),
                 ],
               ),
