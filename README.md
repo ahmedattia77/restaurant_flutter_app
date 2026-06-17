@@ -6,7 +6,14 @@ A modern, high-performance Groceries mobile application built using **Flutter** 
 
 ## 🌟 Core Features
 
-### 🌓 Dynamic Light & Dark Mode
+### 🔐 Persistent Login Session
+* **Session Retention**: Saves user authentication state locally using `SharedPreferences`.
+* **Auto-Login**: Detects active sessions on app launch to bypass login and onboarding screens.
+* **Instant Directing**: Routes users straight to the `MainLayout` or dashboard dynamically.
+
+### 🌗 Dynamic Dark Mode
+* **Theme Persistence**: Remembers user theme preferences (Light/Dark) across app restarts.
+* **State Management**: Listens to theme toggles instantly without requiring a full app rebuild.
 *   **Zero-Lag Theme Toggle**: Seamlessly switch between Light and Dark themes across the entire app via a global reactive notifier.
 *   **Smart Icons & Typography**: Custom SVG assets and texts dynamically adapt their color filters (`Theme.of(context)`) instantly without full-page rebuilds, maintaining a buttery smooth scrolling experience.
 
