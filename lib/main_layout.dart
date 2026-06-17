@@ -4,9 +4,14 @@ import 'package:restaurant_flutter_app/views/account/pages/account_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:restaurant_flutter_app/views/shop/pages/shop_page.dart';
 
-class MainLayout extends StatelessWidget {
+class MainLayout extends StatefulWidget {
   MainLayout({super.key});
 
+  @override
+  State<MainLayout> createState() => _MainLayoutState();
+}
+
+class _MainLayoutState extends State<MainLayout> {
   final List<Widget> _appPages = [
     const ShopPage(),
     const Center(child: Text("Explore")),
@@ -14,6 +19,13 @@ class MainLayout extends StatelessWidget {
     const Center(child: Text("Favorite")),
     AccountPage(),
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    homeNavigationNotifier.value = 0;
+  }
 
   @override
   Widget build(BuildContext context) {
