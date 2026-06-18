@@ -22,7 +22,9 @@ class AuthHint extends StatelessWidget {
       style: TextButton.styleFrom(
         padding: EdgeInsets.zero
       ),
-      onPressed: () => onClicked,
+      onPressed: () {
+        onClicked!();
+      },
       child: Text(
         title,
         style: TextStyle(

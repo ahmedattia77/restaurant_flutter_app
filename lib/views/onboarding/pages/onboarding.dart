@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/views/auth/pages/login_page.dart';
 import 'package:restaurant_flutter_app/views/onboarding/widget/white/white_head_icon.dart';
 
@@ -66,6 +67,7 @@ class Onboarding extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               onPressed: () {
+            
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const LoginPage()),

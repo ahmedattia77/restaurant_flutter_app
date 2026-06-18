@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/constants/constants.dart';
 import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
+import 'package:restaurant_flutter_app/main_layout.dart';
+import 'package:restaurant_flutter_app/views/onboarding/pages/onboarding.dart';
 import 'package:restaurant_flutter_app/views/widget_tree.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +35,14 @@ class MyApp extends StatelessWidget {
             colorScheme: dynamicColorScheme,
             iconTheme: IconThemeData(color: dynamicColorScheme.onSurface),
           ),
-          home: WidgetTree(),
+          home: ValueListenableBuilder(
+            valueListenable: isLogedNotifier,
+            builder: (context, value, child) {
+              return Scaffold(
+                body: value ? MainLayout() : Onboarding(),
+              );
+            }
+          ),
         );
       },
     );

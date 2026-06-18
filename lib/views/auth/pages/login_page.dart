@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/constants/constants.dart';
 import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/main_layout.dart';
+import 'package:restaurant_flutter_app/views/auth/pages/sign_up_page.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_background.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_button.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_text_field.dart';
@@ -12,7 +13,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
@@ -66,12 +66,16 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: 30),
               AuthButton(
                 text: 'Login',
-                onPressed: () async{
-                  // isLogedNotifier.value = true;                  
-                  final SharedPreferences prefs = await SharedPreferences.getInstance();
+                onPressed: () async {
+                  // isLogedNotifier.value = true;
+                  final SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
                   await prefs.setBool(isLoggedInKey, true);
-                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => 
-                     MainLayout(),),(route) => false);
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => MainLayout()),
+                    (route) => false,
+                  );
                 },
               ),
               SizedBox(height: 25),
@@ -87,8 +91,13 @@ class LoginPage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     color: Colors.green,
                     onClicked: () {
-                      selectedAuthPageNotifier.value = 2;
-                      
+                      print('signUp Clicked');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SignUpPage(),
+                        ),
+                      );
                     },
                   ),
                 ],

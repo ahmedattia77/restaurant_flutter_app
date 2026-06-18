@@ -49,8 +49,8 @@ class AccountPage extends StatelessWidget {
                               onPressed: () async {
                                 final SharedPreferences prefs =
                                     await SharedPreferences.getInstance();
-                                prefs.setBool(isDarkMode, true);
                                 isDark.value = !value;
+                                prefs.setBool(isDarkMode, isDark.value);
                               },
                             );
                           },
@@ -81,13 +81,9 @@ class AccountPage extends StatelessWidget {
             padding: const EdgeInsets.only(top: 20, bottom: 20),
             child: ElevatedButton(
               onPressed: () async {
-                // homeNavigationNotifier.value = 0;
-                // isLogedNotifier.value = false;
-                // selectedAuthPageNotifier.value = 0;
                 final SharedPreferences prefs =
                     await SharedPreferences.getInstance();
                   await prefs.remove(isLoggedInKey);
-                  await prefs.remove(isDarkMode);
 
                 Navigator.pushAndRemoveUntil(
                   context,
