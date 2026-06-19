@@ -58,15 +58,7 @@ class _ShopPageState extends State<ShopPage> {
             SectionTextField(title: 'Exclusive Offer',),
             
             SizedBox(height: 20),
-            // SizedBox(
-            //         height: 130,
-            //         width: double.infinity,
-            //         child: ProductItemBacground(
-            //           child: ShoppingImageSlider(),
-            //         ),
-            //       ),
-            // SizedBox(height: 20),
-      
+            
             SizedBox(
               height: 230,
               child: ListView.separated(

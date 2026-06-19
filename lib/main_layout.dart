@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/views/account/pages/account_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:restaurant_flutter_app/views/cart/pages/cart_page.dart';
+import 'package:restaurant_flutter_app/views/favorite/pages/favorite_page.dart';
 import 'package:restaurant_flutter_app/views/shop/pages/shop_page.dart';
 
 class MainLayout extends StatefulWidget {
@@ -18,8 +20,8 @@ class _MainLayoutState extends State<MainLayout> {
   final List<Widget> _appPages = [
     const ShopPage(),
     const Center(child: Text("Explore")),
-    const Center(child: Text("Cart")),
-    const Center(child: Text("Favorite")),
+    const CartPage(),
+    const FavoritePage(),
     const AccountPage(),
   ];
 
@@ -40,8 +42,6 @@ class _MainLayoutState extends State<MainLayout> {
           setState(() {
             _currentPage = index;
           },);
-          // _currentPage = index ;
-          // homeNavigationNotifier.value = index;
         },
         type: BottomNavigationBarType.fixed,
         selectedItemColor: selectedColor,
