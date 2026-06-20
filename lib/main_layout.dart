@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/views/account/pages/account_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:restaurant_flutter_app/views/cart/pages/cart_page.dart';
+import 'package:restaurant_flutter_app/views/explore/pages/explore_page.dart';
 import 'package:restaurant_flutter_app/views/favorite/pages/favorite_page.dart';
 import 'package:restaurant_flutter_app/views/shop/pages/shop_page.dart';
 
@@ -19,7 +20,7 @@ class _MainLayoutState extends State<MainLayout> {
 
   final List<Widget> _appPages = [
     const ShopPage(),
-    const Center(child: Text("Explore")),
+    const ExplorePage(),
     const CartPage(),
     const FavoritePage(),
     const AccountPage(),

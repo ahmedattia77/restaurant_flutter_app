@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key});
+  final String ?query ;
+  const SearchTextField({super.key , this.query});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,6 @@ class SearchTextField extends StatelessWidget {
         hint: Text("Search Store"),
         prefixIcon: Icon(Icons.search),
         filled: true,
-        // fillColor: Color.fromARGB(255, 16, 31, 39),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide.none,

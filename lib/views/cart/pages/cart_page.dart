@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/data/shop/model/shopping_model.dart';
 import 'package:restaurant_flutter_app/data/shop/repository/cart_repository.dart';
 import 'package:restaurant_flutter_app/data/shop/use_case/get_total_price.dart';
-import 'package:restaurant_flutter_app/data/shop/use_case/remove_cart_irem_use_case.dart';
 import 'package:restaurant_flutter_app/views/cart/widgets/cart_item_view.dart';
 import 'package:restaurant_flutter_app/views/cart/widgets/go_to%20checkout_button.dart';
 import 'package:restaurant_flutter_app/views/cart/widgets/my_cart_text_view.dart';
