@@ -17,11 +17,30 @@ class _ExplorePageState extends State<ExplorePage> {
   Color selectedColor = Color(0xff53B175);
   late List<GroceriesModel> _searchGroList = [];
   final _searchGroceriesRepository = SearchGroceriesRepository();
+  List<GroceriesModel> _filteredGroList = [];
 
   @override
   void initState() {
     super.initState();
     _searchGroList = _searchGroceriesRepository.getSearchGroceries();
+    _filteredGroList = _searchGroList;
+  }
+
+  void _fillteredItems(String searchQuery) {
+    List<GroceriesModel> results = [];
+    searchQuery.isEmpty
+        ? results = _searchGroList
+        : results = _searchGroList
+              .where(
+                (item) => item.title.toLowerCase().contains(
+                  searchQuery.toLowerCase(),
+                ),
+              )
+              .toList();
+
+    setState(() {
+      _filteredGroList = results;
+    });
   }
 
   @override
@@ -36,10 +55,14 @@ class _ExplorePageState extends State<ExplorePage> {
           children: [
             const SizedBox(height: 30),
             const ExploreTextView(),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             Row(
               children: [
-                Expanded(child: SearchTextField()),
+                Expanded(
+                  child: SearchTextField(
+                    onChanged: (value) => _fillteredItems(value),
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(left: 12),
                   child: SvgPicture.asset(
@@ -52,21 +75,25 @@ class _ExplorePageState extends State<ExplorePage> {
                 ),
               ],
             ),
+            const SizedBox(height: 30),
             const SizedBox(height: 20),
             Expanded(
-              child: GridView.builder(
-                itemCount: _searchGroList.length, 
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, 
-                  crossAxisSpacing: 5,
-                  mainAxisSpacing: 5, 
-                  childAspectRatio: 0.85,
-                ),
-                itemBuilder: (context, index) {
-                  GroceriesModel data = _searchGroList[index];
-                  return SearchItemView(data: data);
-                },
-              ),
+              child: _filteredGroList.isEmpty
+                  ? const Center(child: Text("No products found!"))
+                  : GridView.builder(
+                      itemCount: _filteredGroList.length,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 5,
+                            mainAxisSpacing: 5,
+                            childAspectRatio: 0.85,
+                          ),
+                      itemBuilder: (context, index) {
+                        GroceriesModel data = _filteredGroList[index];
+                        return SearchItemView(data: data);
+                      },
+                    ),
             ),
           ],
         ),

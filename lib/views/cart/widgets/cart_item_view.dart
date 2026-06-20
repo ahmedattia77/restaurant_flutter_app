@@ -4,7 +4,7 @@ import 'package:restaurant_flutter_app/data/shop/model/shopping_model.dart';
 class CartItemView extends StatefulWidget {
   final ShoppingModel data;
   final VoidCallback remove;
-  const CartItemView({super.key, required this.data ,required this.remove});
+  const CartItemView({super.key, required this.data, required this.remove});
 
   @override
   State<CartItemView> createState() => _CartItemViewState();
@@ -32,7 +32,20 @@ class _CartItemViewState extends State<CartItemView> {
         children: [
           Row(
             children: [
-              Image.asset(width: 70, height: 80, widget.data.image),
+              Image.asset(
+                width: 70,
+                height: 80,
+                widget.data.image,
+                frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+                  if (wasSynchronouslyLoaded) return child;
+                  return AnimatedOpacity(
+                    opacity: frame == null ? 0 : 1,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeOut,
+                    child: child,
+                  );
+                },
+              ),
               const SizedBox(width: 40),
               Expanded(
                 child: Column(
@@ -121,7 +134,7 @@ class _CartItemViewState extends State<CartItemView> {
                     decoration: BoxDecoration(
                       color: isDarkMode ? Colors.white12 : Colors.white,
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(width: 0.2), 
+                      border: Border.all(width: 0.2),
                     ),
                     child: IconButton(
                       onPressed: () => widget.remove(),

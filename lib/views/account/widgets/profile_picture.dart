@@ -9,7 +9,7 @@ class ProfilePicture extends StatelessWidget {
       decoration: BoxDecoration(shape: BoxShape.circle),
       child: CircleAvatar(
         radius: 35,
-        backgroundImage: AssetImage('assets/images/ironman.jpg'),
+        backgroundImage: AssetImage('assets/images/ironman.jpg', ),
       ),
     );
   }

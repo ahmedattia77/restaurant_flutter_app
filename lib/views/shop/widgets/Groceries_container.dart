@@ -30,14 +30,24 @@ class GroceriesContainer extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(data.image),
+              Image.asset(
+                data.image,
+                frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+                  if (wasSynchronouslyLoaded) return child;
+                  return AnimatedOpacity(
+                    opacity: frame == null ? 0 : 1,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeOut,
+                    child: child,
+                  );
+                },
+              ),
               SizedBox(width: 8),
               Text(
                 data.title,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
               ),
             ],
-            
           ),
         ),
       ),

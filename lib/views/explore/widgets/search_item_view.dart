@@ -21,19 +21,33 @@ class SearchItemView extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(data.image , width: 90,height: 90,),
+              Image.asset(
+                data.image,
+                width: 90,
+                height: 90,
+                frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+                  if (wasSynchronouslyLoaded) return child;
+                  return AnimatedOpacity(
+                    opacity: frame == null ? 0 : 1,
+                    duration: const Duration(
+                      milliseconds: 500,
+                    ), 
+                    curve: Curves.easeOut,
+                    child: child,
+                  );
+                },
+              ),
               SizedBox(height: 5),
-              Text(data.title , 
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              style: TextStyle(
-                fontSize: 16, 
-                fontWeight: FontWeight.bold ,
-              ),)
+              Text(
+                data.title,
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ],
           ),
-        )
+        ),
       ),
     );
   }

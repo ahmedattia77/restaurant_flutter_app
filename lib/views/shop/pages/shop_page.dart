@@ -53,7 +53,7 @@ class _ShopPageState extends State<ShopPage> {
             SizedBox(height: 16),
             LocationTitle(title: 'Dhaka, Banassre'),
             SizedBox(height: 20),
-            SearchTextField(),
+            SearchTextField(onChanged: (value) => '',),
             SizedBox(height: 30),
             SectionTextField(title: 'Exclusive Offer',),
             
