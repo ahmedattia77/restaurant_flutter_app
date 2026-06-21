@@ -4,7 +4,7 @@ import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/main_layout.dart';
 import 'package:restaurant_flutter_app/views/auth/pages/sign_up_page.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_background.dart';
-import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_button.dart';
+import 'package:restaurant_flutter_app/views/common_widgets/app_button.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_text_field.dart';
 import 'package:restaurant_flutter_app/views/common_widgets/head_icon.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_title.dart';
@@ -64,7 +64,7 @@ class LoginPage extends StatelessWidget {
                 child: AuthHint(title: 'Forget password?', fontSize: 14),
               ),
               SizedBox(height: 30),
-              AuthButton(
+              AppBotton(
                 text: 'Login',
                 onPressed: () async {
                   // isLogedNotifier.value = true;

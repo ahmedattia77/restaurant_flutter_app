@@ -36,7 +36,6 @@ class _ExplorePageState extends State<ExplorePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -58,7 +57,7 @@ class _ExplorePageState extends State<ExplorePage> {
                     },
                   ),
                 ),
-                FillterSheetBottom(),
+                FillterSheetBottom(filterOnClick: () {}),
               ],
             ),
             const SizedBox(height: 30),

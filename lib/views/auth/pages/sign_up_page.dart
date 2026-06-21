@@ -3,7 +3,7 @@ import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_hint.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_title.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_background.dart';
-import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_button.dart';
+import 'package:restaurant_flutter_app/views/common_widgets/app_button.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_text_field.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/text_field_hint.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/have_account_text.dart';
@@ -79,7 +79,7 @@ class SignUpPage extends StatelessWidget {
                 ValueListenableBuilder(
                   valueListenable: selectedAuthPageNotifier,
                   builder: (context, sellectedPage, child) {
-                    return AuthButton(
+                    return AppBotton(
                       text: 'Sign Up',
                       onPressed: () {
                         selectedAuthPageNotifier.value = 0;
