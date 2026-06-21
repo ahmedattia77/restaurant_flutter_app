@@ -5,6 +5,8 @@ import 'package:restaurant_flutter_app/data/shop/repository/explore_groceries_re
 import 'package:restaurant_flutter_app/data/shop/use_case/filltered_items_use_case.dart';
 import 'package:restaurant_flutter_app/views/common_widgets/search_text_field.dart';
 import 'package:restaurant_flutter_app/views/explore/widgets/explore_text_view.dart';
+import 'package:restaurant_flutter_app/views/explore/widgets/fillter_sheet_bottom.dart';
+import 'package:restaurant_flutter_app/views/explore/widgets/filtter_icon.dart';
 import 'package:restaurant_flutter_app/views/explore/widgets/search_item_view.dart';
 
 class ExplorePage extends StatefulWidget {
@@ -34,11 +36,10 @@ class _ExplorePageState extends State<ExplorePage> {
 
   @override
   Widget build(BuildContext context) {
-    Color unselectedColor = Theme.of(context).iconTheme.color ?? Colors.black;
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -57,16 +58,7 @@ class _ExplorePageState extends State<ExplorePage> {
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 12),
-                  child: SvgPicture.asset(
-                    'assets/svg/fillter.svg',
-                    colorFilter: ColorFilter.mode(
-                      unselectedColor,
-                      BlendMode.srcIn,
-                    ),
-                  ),
-                ),
+                FillterSheetBottom(),
               ],
             ),
             const SizedBox(height: 30),
@@ -85,10 +77,9 @@ class _ExplorePageState extends State<ExplorePage> {
                       itemBuilder: (context, index) {
                         GroceriesModel data = _filteredGroList[index];
                         return InkWell(
-                          onTap: () {
-                            
-                          },
-                          child: SearchItemView(data: data));
+                          onTap: () {},
+                          child: SearchItemView(data: data),
+                        );
                       },
                     ),
             ),

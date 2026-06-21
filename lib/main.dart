@@ -16,7 +16,7 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -36,7 +36,6 @@ class MyApp extends StatelessWidget {
           ),
           home: 
              isLogedNotifier.value ? MainLayout() : Onboarding(),
-
         );
       },
     );
