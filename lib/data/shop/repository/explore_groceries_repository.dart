@@ -1,7 +1,7 @@
 import 'package:flutter/painting.dart';
 import 'package:restaurant_flutter_app/data/shop/model/groceries_model.dart';
 
-class SearchGroceriesRepository  {
+class ExploreGroceriesRepository  {
 
 
   List<GroceriesModel> getSearchGroceries () =>  [

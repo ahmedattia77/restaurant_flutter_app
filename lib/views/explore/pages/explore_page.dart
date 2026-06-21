@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:restaurant_flutter_app/data/shop/model/groceries_model.dart';
-import 'package:restaurant_flutter_app/data/shop/repository/search_groceries_repository.dart';
+import 'package:restaurant_flutter_app/data/shop/repository/explore_groceries_repository.dart';
+import 'package:restaurant_flutter_app/data/shop/use_case/filltered_items_use_case.dart';
 import 'package:restaurant_flutter_app/views/common_widgets/search_text_field.dart';
 import 'package:restaurant_flutter_app/views/explore/widgets/explore_text_view.dart';
 import 'package:restaurant_flutter_app/views/explore/widgets/search_item_view.dart';
@@ -15,33 +16,22 @@ class ExplorePage extends StatefulWidget {
 
 class _ExplorePageState extends State<ExplorePage> {
   Color selectedColor = Color(0xff53B175);
-  late List<GroceriesModel> _searchGroList = [];
-  final _searchGroceriesRepository = SearchGroceriesRepository();
+  late List<GroceriesModel> _exploreGroList = [];
+  final _exploreGroceriesRepository = ExploreGroceriesRepository();
+  late final FillteredItemsUseCase _fillteredGroceriesUseCase;
+
   List<GroceriesModel> _filteredGroList = [];
 
   @override
   void initState() {
     super.initState();
-    _searchGroList = _searchGroceriesRepository.getSearchGroceries();
-    _filteredGroList = _searchGroList;
+    _exploreGroList = _exploreGroceriesRepository.getSearchGroceries();
+    _fillteredGroceriesUseCase = FillteredItemsUseCase(
+      exploreReo: _exploreGroceriesRepository,
+    );
+    _filteredGroList = _exploreGroList;
   }
 
-  void _fillteredItems(String searchQuery) {
-    List<GroceriesModel> results = [];
-    searchQuery.isEmpty
-        ? results = _searchGroList
-        : results = _searchGroList
-              .where(
-                (item) => item.title.toLowerCase().contains(
-                  searchQuery.toLowerCase(),
-                ),
-              )
-              .toList();
-
-    setState(() {
-      _filteredGroList = results;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +50,12 @@ class _ExplorePageState extends State<ExplorePage> {
               children: [
                 Expanded(
                   child: SearchTextField(
-                    onChanged: (value) => _fillteredItems(value),
+                    onChanged: (searchQuery) {
+                      setState(() {
+                        _filteredGroList = _fillteredGroceriesUseCase
+                            .fillteredItems(searchQuery);
+                      });
+                    },
                   ),
                 ),
                 Padding(
@@ -76,7 +71,6 @@ class _ExplorePageState extends State<ExplorePage> {
               ],
             ),
             const SizedBox(height: 30),
-            const SizedBox(height: 20),
             Expanded(
               child: _filteredGroList.isEmpty
                   ? const Center(child: Text("No products found!"))

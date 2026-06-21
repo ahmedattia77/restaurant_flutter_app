@@ -1,8 +1,8 @@
 import 'package:restaurant_flutter_app/data/shop/repository/cart_repository.dart';
 
-class GetTotalPriceUseCase {
+class TotalPriceUseCase {
   CartRepository cardReo;
-  GetTotalPriceUseCase({required this.cardReo});
+  TotalPriceUseCase({required this.cardReo});
 
   double getTotalAmountOfPrice() {
     return cardReo.getCart().fold(

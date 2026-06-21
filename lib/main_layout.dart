@@ -36,6 +36,7 @@ class _MainLayoutState extends State<MainLayout> {
   Widget build(BuildContext context) {
     Color unselectedColor = Theme.of(context).iconTheme.color ?? Colors.black;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: _appPages.elementAt(_currentPage),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentPage,
