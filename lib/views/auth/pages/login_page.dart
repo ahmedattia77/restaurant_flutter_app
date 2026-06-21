@@ -91,7 +91,6 @@ class LoginPage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     color: Colors.green,
                     onClicked: () {
-                      print('signUp Clicked');
                       Navigator.push(
                         context,
                         MaterialPageRoute(

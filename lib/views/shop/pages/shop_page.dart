@@ -7,7 +7,7 @@ import 'package:restaurant_flutter_app/data/shop/repository/groceries_product_re
 import 'package:restaurant_flutter_app/data/shop/repository/groceries_repository.dart';
 import 'package:restaurant_flutter_app/views/common_widgets/head_icon.dart';
 import 'package:restaurant_flutter_app/views/shop/pages/product_page.dart';
-import 'package:restaurant_flutter_app/views/shop/widgets/Groceries_container.dart';
+import 'package:restaurant_flutter_app/views/shop/widgets/groceries_container.dart';
 import 'package:restaurant_flutter_app/views/shop/widgets/exclusive_offers_container.dart';
 import 'package:restaurant_flutter_app/views/shop/widgets/location_title.dart';
 import 'package:restaurant_flutter_app/views/common_widgets/search_text_field.dart';

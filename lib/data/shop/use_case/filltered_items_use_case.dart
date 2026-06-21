@@ -8,10 +8,11 @@ class FillteredItemsUseCase {
   List<GroceriesModel> _getGroceries() => exploreReo.getSearchGroceries();
 
   List<GroceriesModel> fillteredItems(String searchQuery) {
-    List<GroceriesModel> result = exploreReo.getSearchGroceries();
+    List<GroceriesModel> result = _getGroceries();
     return searchQuery.isEmpty
         ? result
-        : result.where(
+        : result
+              .where(
                 (item) => item.title.toLowerCase().contains(
                   searchQuery.toLowerCase(),
                 ),

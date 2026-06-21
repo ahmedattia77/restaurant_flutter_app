@@ -21,7 +21,7 @@ class AuthBackground extends StatelessWidget {
               height: 150,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xffFF8A8A).withOpacity(0.15),
+                color: const Color(0xffFF8A8A).withValues(alpha:0.15),
               ),
             ),
           ),
@@ -34,7 +34,7 @@ class AuthBackground extends StatelessWidget {
               height: 150,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xff53B175).withOpacity(0.08),
+                color: const Color(0xff53B175).withValues(alpha: 0.08),
               ),
             ),
           ),
@@ -47,7 +47,7 @@ class AuthBackground extends StatelessWidget {
               height: 150,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xffFF8A8A).withOpacity(0.15),
+                color: const Color(0xffFF8A8A).withValues(alpha: 0.15),
               ),
             ),
           ),
@@ -60,7 +60,7 @@ class AuthBackground extends StatelessWidget {
               height: 150,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xff53B175).withOpacity(0.08),
+                color: const Color(0xff53B175).withValues(alpha:0.08),
               ),
             ),
           ),
