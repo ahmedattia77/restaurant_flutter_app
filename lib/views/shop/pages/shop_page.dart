@@ -21,16 +21,15 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
-
   final _exclusivRipo = ExclusiveOfferRepository();
   final _bestSellingRipo = BestSellingRepository();
   final _groceriesRipo = GroceriesRepository();
   final _groceriesProductRipo = GroceriesProductRepository();
 
   late List<ShoppingModel> _exclusiveOfferList = [];
-  late List<ShoppingModel> _bestSellingList= [];
-  late List<GroceriesModel> _groceriesList= [];
-  late List<ShoppingModel> _groceriesProductList= [];
+  late List<ShoppingModel> _bestSellingList = [];
+  late List<GroceriesModel> _groceriesList = [];
+  late List<ShoppingModel> _groceriesProductList = [];
 
   @override
   void initState() {
@@ -53,27 +52,29 @@ class _ShopPageState extends State<ShopPage> {
             SizedBox(height: 16),
             LocationTitle(title: 'Dhaka, Banassre'),
             SizedBox(height: 20),
-            SearchTextField(onChanged: (value) => '',),
+            SearchTextField(onChanged: (value) => ''),
             SizedBox(height: 30),
-            SectionTextField(title: 'Exclusive Offer',),
-            
+            SectionTextField(title: 'Exclusive Offer'),
+
             SizedBox(height: 20),
-            
+
             SizedBox(
               height: 230,
               child: ListView.separated(
                 clipBehavior: Clip.none,
                 scrollDirection: Axis.horizontal,
                 itemCount: _exclusiveOfferList.length,
-      
+
                 itemBuilder: (context, index) {
                   final product = _exclusiveOfferList[index];
-                  return ExclusiveOffersContainer(data: product, onClick: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => 
-                     ProductPage(data:product ),));
-                    });
+                  return ExclusiveOffersContainer(
+                    onItemClick: () => Navigator.push(context, MaterialPageRoute(builder: (context) => 
+                     ProductPage(data:product ),)),
+                    data: product,
+                    onButtonClick: () {},
+                  );
                 },
-      
+
                 separatorBuilder: (context, index) {
                   return const SizedBox(width: 16);
                 },
@@ -81,7 +82,7 @@ class _ShopPageState extends State<ShopPage> {
             ),
 
             SizedBox(height: 20),
-            SectionTextField(title: 'Best Selling'), 
+            SectionTextField(title: 'Best Selling'),
             SizedBox(height: 20),
 
             SizedBox(
@@ -90,12 +91,17 @@ class _ShopPageState extends State<ShopPage> {
                 clipBehavior: Clip.none,
                 scrollDirection: Axis.horizontal,
                 itemCount: _bestSellingList.length,
-      
+
                 itemBuilder: (context, index) {
                   final product = _bestSellingList[index];
-                  return ExclusiveOffersContainer(data: product, onClick: () {});
+                  return ExclusiveOffersContainer(
+                    onItemClick: () => Navigator.push(context, MaterialPageRoute(builder: (context) => 
+                     ProductPage(data:product ),)),
+                    data: product,
+                    onButtonClick: () {},
+                  );
                 },
-      
+
                 separatorBuilder: (context, index) {
                   return const SizedBox(width: 16);
                 },
@@ -110,12 +116,12 @@ class _ShopPageState extends State<ShopPage> {
                 clipBehavior: Clip.none,
                 scrollDirection: Axis.horizontal,
                 itemCount: _groceriesList.length,
-      
+
                 itemBuilder: (context, index) {
                   final product = _groceriesList[index];
                   return GroceriesContainer(data: product, onClick: () {});
                 },
-      
+
                 separatorBuilder: (context, index) {
                   return const SizedBox(width: 16);
                 },
@@ -130,10 +136,15 @@ class _ShopPageState extends State<ShopPage> {
                 clipBehavior: Clip.none,
                 scrollDirection: Axis.horizontal,
                 itemCount: _groceriesProductList.length,
-      
+
                 itemBuilder: (context, index) {
                   final product = _groceriesProductList[index];
-                  return ExclusiveOffersContainer(data: product, onClick: () {});
+                  return ExclusiveOffersContainer(
+                    onItemClick: () => Navigator.push(context, MaterialPageRoute(builder: (context) => 
+                     ProductPage(data:product ),)),
+                    data: product,
+                    onButtonClick: () {},
+                  );
                 },
                 separatorBuilder: (context, index) {
                   return const SizedBox(width: 16);
@@ -141,8 +152,7 @@ class _ShopPageState extends State<ShopPage> {
               ),
             ),
 
-          SizedBox(height: 20,),
-
+            SizedBox(height: 20),
           ],
         ),
       ),
