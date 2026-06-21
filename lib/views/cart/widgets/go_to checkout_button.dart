@@ -11,7 +11,6 @@ class GoToCheckoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         minimumSize: Size(double.infinity, 50),
@@ -21,21 +20,38 @@ class GoToCheckoutButton extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // SizedBox(width: 50),
+                    const Expanded(child: SizedBox.shrink()),
+
           const Text(
+            textAlign: TextAlign.center,
             'Go to Checkout',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          Container(
-            alignment: Alignment.center,
-            width: 50,
-            height: 35,
-            decoration: BoxDecoration(
-              color: Colors.black38,
-              borderRadius: BorderRadius.circular(8),
+
+          Expanded(
+            child: Align(
+              alignment: AlignmentGeometry.centerRight,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 16),
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 60,
+                  height: 35,
+                  decoration: BoxDecoration(
+                    color: Colors.black38,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(4),
+                    child: Text(
+                      textAlign: TextAlign.center,
+                      '\$${totalPrice.toStringAsFixed(2)}'),
+                  ),
+                ),
+              ),
             ),
-            child: Text('\$${totalPrice.toStringAsFixed(2)}'),
           ),
         ],
       ),

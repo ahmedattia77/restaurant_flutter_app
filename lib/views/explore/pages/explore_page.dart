@@ -84,7 +84,11 @@ class _ExplorePageState extends State<ExplorePage> {
                           ),
                       itemBuilder: (context, index) {
                         GroceriesModel data = _filteredGroList[index];
-                        return SearchItemView(data: data);
+                        return InkWell(
+                          onTap: () {
+                            
+                          },
+                          child: SearchItemView(data: data));
                       },
                     ),
             ),
