@@ -34,9 +34,9 @@ class MyApp extends StatelessWidget {
             colorScheme: dynamicColorScheme,
             iconTheme: IconThemeData(color: dynamicColorScheme.onSurface),
           ),
-          home: Scaffold(
-            body: isLogedNotifier.value ? MainLayout() : Onboarding(),
-          ),
+          home: 
+             isLogedNotifier.value ? MainLayout() : Onboarding(),
+
         );
       },
     );

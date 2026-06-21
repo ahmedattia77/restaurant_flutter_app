@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/views/auth/pages/login_page.dart';
 import 'package:restaurant_flutter_app/views/onboarding/widget/white/white_head_icon.dart';
 

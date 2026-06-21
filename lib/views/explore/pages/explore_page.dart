@@ -32,7 +32,6 @@ class _ExplorePageState extends State<ExplorePage> {
     _filteredGroList = _exploreGroList;
   }
 
-
   @override
   Widget build(BuildContext context) {
     Color unselectedColor = Theme.of(context).iconTheme.color ?? Colors.black;
