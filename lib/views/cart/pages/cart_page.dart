@@ -3,6 +3,7 @@ import 'package:restaurant_flutter_app/data/shop/model/shopping_model.dart';
 import 'package:restaurant_flutter_app/data/shop/repository/cart_repository.dart';
 import 'package:restaurant_flutter_app/data/shop/use_case/total_price_use_case.dart';
 import 'package:restaurant_flutter_app/views/cart/widgets/cart_item_view.dart';
+import 'package:restaurant_flutter_app/views/cart/widgets/cart_bottom_sheet.dart';
 import 'package:restaurant_flutter_app/views/cart/widgets/go_to_checkout_button.dart';
 import 'package:restaurant_flutter_app/views/cart/widgets/my_cart_textview.dart';
 
@@ -18,7 +19,7 @@ class _CartPageState extends State<CartPage> {
   late final TotalPriceUseCase _getTotalPrice = TotalPriceUseCase(
     cardReo: _myCartRepository,
   );
-  
+
   double _totalPrice = 0;
   final CartRepository _myCartRepository = CartRepository();
 
@@ -63,7 +64,16 @@ class _CartPageState extends State<CartPage> {
           SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25),
-            child: GoToCheckoutButton(onClick: () {}, totalPrice: _totalPrice),
+            child: GoToCheckoutButton(
+              onClick: () {
+                CartBottomSheet.show(
+                  context,
+                  placeholderCallBack: () => Navigator.pop(context),
+                  closeSheetCallBack: () => Navigator.pop(context),
+                );
+              },
+              totalPrice: _totalPrice,
+            ),
           ),
         ],
       ),
