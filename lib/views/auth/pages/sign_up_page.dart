@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
+import 'package:restaurant_flutter_app/views/auth/pages/login_page.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_hint.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_title.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_background.dart';
@@ -76,32 +77,30 @@ class SignUpPage extends StatelessWidget {
 
                 SizedBox(height: 30),
 
-                ValueListenableBuilder(
-                  valueListenable: selectedAuthPageNotifier,
-                  builder: (context, sellectedPage, child) {
-                    return AppBotton(
+                 AppBotton(
                       text: 'Sign Up',
                       onPressed: () {
-                        selectedAuthPageNotifier.value = 0;
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
                       },
-                    );
-                  },
-                ),
+                    ),
+                
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     HaveAccountText(text: 'Already have an account?'),
-                    ValueListenableBuilder(
-                      valueListenable: selectedAuthPageNotifier,
-                      builder: (context, value, child) {
-                        return AuthHint(
-                          title: ' Log in',
-                          fontWeight: FontWeight.w600,
-                          color: Colors.green,
-                          onClicked: () {
-                            selectedAuthPageNotifier.value = 0;
-                          },
+
+                    AuthHint(
+                      title: ' Log in',
+                      fontWeight: FontWeight.w600,
+                      color: Colors.green,
+                      onClicked: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
                         );
                       },
                     ),
