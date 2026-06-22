@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/data/shop/model/shopping_model.dart';
 import 'package:restaurant_flutter_app/data/shop/repository/cart_repository.dart';
 import 'package:restaurant_flutter_app/data/shop/use_case/total_price_use_case.dart';
+import 'package:restaurant_flutter_app/views/cart/pages/card_order_page.dart';
 import 'package:restaurant_flutter_app/views/cart/widgets/cart_item_view.dart';
 import 'package:restaurant_flutter_app/views/cart/widgets/cart_bottom_sheet.dart';
 import 'package:restaurant_flutter_app/views/cart/widgets/go_to_checkout_button.dart';
@@ -68,7 +69,7 @@ class _CartPageState extends State<CartPage> {
               onClick: () {
                 CartBottomSheet.show(
                   context,
-                  placeholderCallBack: () => Navigator.pop(context),
+                  placeholderCallBack: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CardOrderPage(),)),
                   closeSheetCallBack: () => Navigator.pop(context),
                 );
               },
