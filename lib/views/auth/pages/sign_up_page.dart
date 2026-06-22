@@ -4,6 +4,7 @@ import 'package:restaurant_flutter_app/views/auth/pages/login_page.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_hint.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_title.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_background.dart';
+import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_password_text_field%20copy.dart';
 import 'package:restaurant_flutter_app/views/common_widgets/app_button.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_text_field.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/text_field_hint.dart';
@@ -48,24 +49,10 @@ class SignUpPage extends StatelessWidget {
                 SizedBox(height: 30),
                 TextFieldHint(text: 'Password'),
                 SizedBox(height: 6),
-                ValueListenableBuilder(
-                  valueListenable: obscureTextShowNotifiere,
-                  builder: (context, value, child) {
-                    return CustomAuthTextField(
-                      hintText: '*******',
-                      keyboardType: TextInputType.visiblePassword,
-                      obscureText: value,
-                      suffixIcon: IconButton(
-                        icon: value
-                            ? const Icon(Icons.visibility_off)
-                            : const Icon(Icons.visibility),
-                        onPressed: () {
-                          obscureTextShowNotifiere.value =
-                              !obscureTextShowNotifiere.value;
-                        },
-                      ),
-                    );
-                  },
+                
+                CustomAuthPasswordTextField(
+                  hintText: '*******',
+                  keyboardType: TextInputType.visiblePassword,
                 ),
 
                 SizedBox(height: 20),
@@ -77,16 +64,16 @@ class SignUpPage extends StatelessWidget {
 
                 SizedBox(height: 30),
 
-                 AppBotton(
-                      text: 'Sign Up',
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        );
-                      },
-                    ),
-                
+                AppBotton(
+                  text: 'Sign Up',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginPage()),
+                    );
+                  },
+                ),
+
                 SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

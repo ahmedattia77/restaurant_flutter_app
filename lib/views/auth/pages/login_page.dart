@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_flutter_app/constants/constants.dart';
-import 'package:restaurant_flutter_app/data/auth/value_notifier.dart';
 import 'package:restaurant_flutter_app/main_layout.dart';
 import 'package:restaurant_flutter_app/views/auth/pages/sign_up_page.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_background.dart';
+import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_password_text_field%20copy.dart';
 import 'package:restaurant_flutter_app/views/common_widgets/app_button.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/custom_auth_text_field.dart';
 import 'package:restaurant_flutter_app/views/common_widgets/head_icon.dart';
@@ -11,11 +11,18 @@ import 'package:restaurant_flutter_app/views/auth/widgets/auth_title.dart';
 import 'package:restaurant_flutter_app/views/auth/widgets/auth_hint.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
+    bool _isPasswordVisible = false;
+
     return AuthBackground(
       child: SingleChildScrollView(
         child: Padding(
@@ -39,24 +46,9 @@ class LoginPage extends StatelessWidget {
               SizedBox(height: 30),
               Text('Password', style: TextStyle(fontSize: 16)),
               SizedBox(height: 6),
-              ValueListenableBuilder(
-                valueListenable: obscureTextShowNotifiere,
-                builder: (context, value, child) {
-                  return CustomAuthTextField(
-                    hintText: '*******',
-                    keyboardType: TextInputType.visiblePassword,
-                    obscureText: value,
-                    suffixIcon: IconButton(
-                      icon: value
-                          ? const Icon(Icons.visibility_off)
-                          : const Icon(Icons.visibility),
-                      onPressed: () {
-                        obscureTextShowNotifiere.value =
-                            !obscureTextShowNotifiere.value;
-                      },
-                    ),
-                  );
-                },
+              CustomAuthPasswordTextField(
+                hintText: '*******',
+                keyboardType: TextInputType.visiblePassword,
               ),
               SizedBox(height: 20),
               Align(
