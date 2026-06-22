@@ -11,13 +11,14 @@ class FillterSheetBottom extends StatefulWidget {
 }
 
 class _FillterSheetBottomState extends State<FillterSheetBottom> {
+
   final Map<String, bool> _categories = {
     'Eggs': false,
     'Noodles & Pasta': false,
     'Chips & Crisps': false,
     'Fast Food': false,
   };
-
+  
   final Map<String, bool> _brands = {
     'Individual Callection': false,
     'Cocola': false,
