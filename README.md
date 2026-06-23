@@ -78,9 +78,7 @@ lib/
         └── usecase/
         |    |── filltered_items
         |    |── total_price
-        ├── explore/
-        ├── cart/
-        ├── favorit/
+        ETC
 │   └── items.dart                
 │
 └── views/                        #  Presentation Layer (User Interface & Micro-Widgets)
@@ -95,8 +93,17 @@ lib/
     ├── home/                     # Home Storefront Screen
     │   ├── pages/                
     │   └── widgets/              
-    ├── onboarding/               # Application Introduction Flow
-    │   ├── pages/                # OnboardingScreen
+    ├── onboarding/               
+    │   ├── pages/                
+    │   └── widgets/              
+    ├── explore/               
+    │   ├── pages/                
+    │   └── widgets/              
+    ├── cart/               
+    │   ├── pages/                
+    │   └── widgets/              
+    ├── favorite/               
+    │   ├── pages/                
     │   └── widgets/              
     ├── shoping/                  # Shopping Catalog & Item details feature
     │   ├── pages/                # ProductPage
