@@ -41,7 +41,10 @@ A modern, high-performance Groceries mobile application built using **Flutter** 
 
 
 
-https://github.com/user-attachments/assets/dda635f4-1153-437c-ae82-1149aa43e4ba
+
+
+https://github.com/user-attachments/assets/7e4c9f80-41db-45e2-bd26-50fa438eb58c
+
 
 
 
@@ -51,7 +54,7 @@ https://github.com/user-attachments/assets/dda635f4-1153-437c-ae82-1149aa43e4ba
 
 ## 📁 Project Architecture & File Structure
 
-The project strictly separates the **Data Layer** from the **Presentation Layer (UI)** adhering to clean architectural boundaries and OOP/OOD design patterns:
+The project strictly separates the **Data Layer** (repository & usecase) from the **Presentation Layer (UI)** adhering to clean architectural boundaries and OOP/OOD design patterns:
 
 ```text
 lib/
@@ -68,10 +71,16 @@ lib/
 │   │   │   ├── groceries_model.dart
 │   │   │   └── shopping_model.dart
 │   │   └── repository/           # Isolated data fetching points (Best Selling, Exclusive Offers)
-│   │       ├── best_selling_repository.dart
-│   │       ├── exclusive_offer_repository.dart
-│   │       ├── groceries_product_repository.dart
-│   │       └── groceries_repository.dart
+│   │   |   ├── best_selling_repository.dart
+│   │   |   ├── exclusive_offer_repository.dart
+│   │   |   ├── groceries_product_repository.dart
+│   │   |    └── groceries_repository.dart
+        └── usecase/
+        |    |── filltered_items
+        |    |── total_price
+        ├── explore/
+        ├── cart/
+        ├── favorit/
 │   └── items.dart                
 │
 └── views/                        #  Presentation Layer (User Interface & Micro-Widgets)
